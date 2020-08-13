@@ -9,8 +9,6 @@ class BankSystem:
     def check_credit_card(card_number):
         pass
 
-
-
     @staticmethod
     def user_menu():
         pass
@@ -39,9 +37,16 @@ class BankSystem:
         option = BankSystem.main_menu()
         while option != 0 and option in BankSystem.OPTIONS:
             option = BankSystem.main_menu()
+            if option in BankSystem.OPTIONS:
+                if option == 1:
+                    BankSystem.create_account()
+                if option == 2:
+                    BankSystem.login()
+
+        if option not in BankSystem.OPTIONS:
+            raise ValueError("Invalid option '{}' ".format(option))
 
 
 if __name__ == '__main__':
     my_bank = BankSystem()
     my_bank.start()
-
