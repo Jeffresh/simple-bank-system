@@ -31,8 +31,10 @@ class BankSystem:
     @staticmethod
     def create_account():
         print('Your card has been created')
-        credit_card = BankSystem.create_credit_card()
-        print(credit_card)
+        credit_card = BankSystem.create_card_number()
+        print('Your card number:\n{}'.format(credit_card))
+        pin_number = BankSystem.create_pin()
+        print('Your card PIN:\n{}'.format(pin_number))
 
     @staticmethod
     def login():
