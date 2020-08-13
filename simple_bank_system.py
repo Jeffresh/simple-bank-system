@@ -6,11 +6,14 @@ class BankSystem:
     OPTIONS = [0, 1, 2]
 
     def __init__(self):
-        users = {}
+        self.users = {}
 
     @staticmethod
     def check_credit_card(card_number):
         pass
+
+    def add_user(self, card_number, pin):
+        self.users.update({card_number: pin})
 
     @staticmethod
     def create_card_number():
@@ -28,13 +31,13 @@ class BankSystem:
     def user_menu():
         pass
 
-    @staticmethod
-    def create_account():
+    def create_account(self):
         print('Your card has been created')
-        credit_card = BankSystem.create_card_number()
-        print('Your card number:\n{}'.format(credit_card))
+        card_number = BankSystem.create_card_number()
+        print('Your card number:\n{}'.format(card_number))
         pin_number = BankSystem.create_pin()
         print('Your card PIN:\n{}'.format(pin_number))
+        self.add_user(card_number, pin_number)
 
     @staticmethod
     def login():
@@ -57,12 +60,11 @@ class BankSystem:
         while option != 0 and option in BankSystem.OPTIONS:
             if option in BankSystem.OPTIONS:
                 if option == 1:
-                    BankSystem.create_account()
+                    self.create_account()
                 if option == 2:
                     BankSystem.login()
 
             option = BankSystem.main_menu()
-
 
         if option not in BankSystem.OPTIONS:
             raise ValueError("Invalid option '{}' ".format(option))
