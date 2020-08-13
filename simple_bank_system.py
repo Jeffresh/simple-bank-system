@@ -2,12 +2,14 @@ class BankSystem:
     CARDS = ['Visa', 'American Express', 'Mastercard']
     OPTIONS = [0, 1, 2]
 
-    def check_credit_card(self, card_number):
-        pass
+    def __init__(self):
+        users = {}
 
     @staticmethod
-    def main_menu():
+    def check_credit_card(card_number):
         pass
+
+
 
     @staticmethod
     def user_menu():
@@ -29,6 +31,10 @@ class BankSystem:
     def log_out():
         pass
 
+    @staticmethod
+    def main_menu():
+        return int(input('1. Create an account\n2. Log into account\n0. Exit\n'))
+
     def start(self):
         option = BankSystem.main_menu()
         while option != 0 and option in BankSystem.OPTIONS:
@@ -37,3 +43,5 @@ class BankSystem:
 
 if __name__ == '__main__':
     my_bank = BankSystem()
+    my_bank.start()
+
