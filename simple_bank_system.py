@@ -19,6 +19,10 @@ class BankSystem:
         card_number = inn + '0' * (10 - len(account_number)) + account_number
         return card_number
 
+    @staticmethod
+    def create_pin():
+        pin_number = str(rd.randint(0, 9999))
+        return '0' * (4 - len(pin_number)) + pin_number
 
     @staticmethod
     def user_menu():
