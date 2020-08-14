@@ -3,7 +3,7 @@ import random as rd
 
 class BankSystem:
     CARDS = ['Visa', 'American Express', 'Mastercard']
-    OPTIONS = [0, 1, 2]
+    MAIN_OPTIONS = [0, 1, 2]
     USER_OPTIONS = [0, 1, 2]
 
     def __init__(self):
