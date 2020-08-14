@@ -67,8 +67,8 @@ class BankSystem:
 
     def start(self):
         option = BankSystem.main_menu()
-        while option != 0 and option in BankSystem.OPTIONS:
-            if option in BankSystem.OPTIONS:
+        while option != 0 and option in BankSystem.MAIN_OPTIONS:
+            if option in BankSystem.MAIN_OPTIONS:
                 if option == 1:
                     self.create_account()
                 if option == 2:
@@ -79,7 +79,7 @@ class BankSystem:
 
             option = BankSystem.main_menu()
 
-        if option not in BankSystem.OPTIONS:
+        if option not in BankSystem.MAIN_OPTIONS:
             raise ValueError("Invalid option '{}' ".format(option))
 
 
