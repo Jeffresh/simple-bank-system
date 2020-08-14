@@ -8,9 +8,11 @@ class BankSystem:
     def __init__(self):
         self.users = {}
 
-    @staticmethod
-    def check_credit_card(card_number):
-        pass
+    def check_credit_card(self, card_number):
+        return card_number in self.users
+
+    def check_pin(self, card_number, pin):
+        return self.users[card_number] == pin
 
     def add_user(self, card_number, pin):
         self.users.update({card_number: pin})
