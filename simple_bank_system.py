@@ -47,9 +47,11 @@ class BankSystem:
         pin = input("Enter your PIN:\n")
         if self.check_credit_card(card_number) and self.check_pin(card_number, pin):
             print("You have successfully logged in!")
-            self.user_menu()
+            return True
         else:
             print("Wrong card number or PIN!")
+
+        return False
 
     @staticmethod
     def get_balance():
