@@ -39,9 +39,14 @@ class BankSystem:
         print('Your card PIN:\n{}'.format(pin_number))
         self.add_user(card_number, pin_number)
 
-    @staticmethod
-    def login():
-        pass
+    def login(self):
+        card_number = input("Enter your card number:\n")
+        pin = input("Enter your PIN:\n")
+        if self.check_credit_card(card_number) and self.check_pin(card_number, pin):
+            print("You have successfully logged in!")
+            self.user_menu()
+        else:
+            print("Wrong card number or PIN!")
 
     @staticmethod
     def get_balance():
