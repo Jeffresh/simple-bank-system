@@ -67,17 +67,22 @@ class BankSystem:
 
     def start(self):
         option = BankSystem.main_menu()
+        user_option = None
         while option != 0 and option in BankSystem.MAIN_OPTIONS:
             if option in BankSystem.MAIN_OPTIONS:
                 if option == 1:
                     self.create_account()
                 if option == 2:
                     logged = self.login()
-                    user_option = 1
-                    while logged and user_option != 0 and user_option in BankSystem.USER_OPTIONS:
+                    while logged and user_option != 0:
                         user_option = self.user_menu()
+                        if user_option == 1:
+                            print("Balance 0")
+                        if user_option == 2:
+                            print("You have successfully logged out!")
 
-            option = BankSystem.main_menu()
+            option = BankSystem.main_menu() if user_option != 0 else 0
+        print("Bye!")
 
         if option not in BankSystem.MAIN_OPTIONS:
             raise ValueError("Invalid option '{}' ".format(option))
