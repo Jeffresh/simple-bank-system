@@ -72,7 +72,10 @@ class BankSystem:
                 if option == 1:
                     self.create_account()
                 if option == 2:
-                    BankSystem.login()
+                    logged = self.login()
+                    user_option = 1
+                    while logged and user_option != 0 and user_option in BankSystem.USER_OPTIONS:
+                        user_option = self.user_menu()
 
             option = BankSystem.main_menu()
 
