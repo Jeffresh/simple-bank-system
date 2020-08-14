@@ -32,7 +32,7 @@ class BankSystem:
 
     @staticmethod
     def user_menu():
-        pass
+        return int(input('1. Balance\n2. Log out\n0. Exit\n'))
 
     def create_account(self):
         print('Your card has been created')
