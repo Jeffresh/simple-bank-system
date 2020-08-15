@@ -38,7 +38,7 @@ If the customer chooses ‘Log into account’, you should ask them to enter the
 
 After all information is entered correctly, you should allow the user to check the account balance; right after creating the account, the balance should be 0. It should also be possible to log out of the account and exit the program.
 
-## Stage 2/4: Luhn algorithm
+# Stage 2/4: Luhn algorithm
 
 In this stage, we will find out what the purpose of the checksum is and what the Luhn algorithm is used for.
 
