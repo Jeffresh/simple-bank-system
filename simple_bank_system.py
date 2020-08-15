@@ -55,11 +55,11 @@ class BankSystem:
 
     @staticmethod
     def get_balance():
-        pass
+        print("Balance 0")
 
     @staticmethod
     def log_out():
-        pass
+        print("You have successfully logged out!")
 
     @staticmethod
     def main_menu():
@@ -77,9 +77,9 @@ class BankSystem:
                     while logged and user_option != 0:
                         user_option = self.user_menu()
                         if user_option == 1:
-                            print("Balance 0")
+                            self.get_balance()
                         if user_option == 2:
-                            print("You have successfully logged out!")
+                            self.log_out()
 
             option = BankSystem.main_menu() if user_option != 0 else 0
         print("Bye!")
