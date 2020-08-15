@@ -65,6 +65,10 @@ class BankSystem:
     def main_menu():
         return int(input('1. Create an account\n2. Log into account\n0. Exit\n'))
 
+    @staticmethod
+    def exit():
+        print("Bye!")
+
     def start(self):
         option = BankSystem.main_menu()
         user_option = None
@@ -82,7 +86,7 @@ class BankSystem:
                             self.log_out()
 
             option = BankSystem.main_menu() if user_option != 0 else 0
-        print("Bye!")
+        exit()
 
         if option not in BankSystem.MAIN_OPTIONS:
             raise ValueError("Invalid option '{}' ".format(option))
