@@ -19,11 +19,21 @@ class BankSystem:
         self.users.update({card_number: pin})
 
     @staticmethod
+    def luhn_algorithm(number_list):
+        odds_by_2 = [number * 2 for number in number_list if number % 2 == 0]
+        subtract_9 = [number - 9 for number in odds_by_2 if number > 9]
+        sum_numbers = sum(subtract_9)
+        return sum_numbers
+
+    @staticmethod
     def create_card_number():
         inn = '400000'
-        account_number = str(rd.randint(0, 9999999999))
-        card_number = inn + '0' * (10 - len(account_number)) + account_number
-        return card_number
+        account_number = str(rd.randint(0, 999999999))
+        card_number = inn + '0' * (9 - len(account_number)) + account_number
+        digits_sum = BankSystem.luhn_algorithm(list(map(int, card_number)))
+        for i in range(10):
+            if (digits_sum + i) % 10 == 0:
+                return card_number + str(i)
 
     @staticmethod
     def create_pin():
