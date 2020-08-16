@@ -20,8 +20,8 @@ class BankSystem:
 
     @staticmethod
     def luhn_algorithm(number_list):
-        odds_by_2 = [number * 2 for number in number_list if number % 2 == 0]
-        subtract_9 = [number - 9 for number in odds_by_2 if number > 9]
+        odds_index_by2 = [number_list[i] * 2 if (i + 1) % 2 == 1 else number_list[i] for i in range(len(number_list))]
+        subtract_9 = [number - 9 if number > 9 else number for number in odds_index_by2]
         sum_numbers = sum(subtract_9)
         return sum_numbers
 
