@@ -1,4 +1,5 @@
 import sqlite3
+import os
 
 
 class Database:
@@ -34,4 +35,4 @@ class BankDatabaseApi:
         pass
 
     def __init__(self):
-        self.conn = sqlite3.connect('database/card.s3db')
+        self.conn = sqlite3.connect('file:database/card.s3db?mode=rw', uri=True)
