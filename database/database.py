@@ -26,7 +26,10 @@ class BankDatabaseApi:
         pass
 
     def mod_balance(self, card_number):
-        pass
+        cur = self.conn.cursor()
+        cur.execute(f'''SELECT balance from card where number == {card_number}''')
+        row = cur.fetchone()
+        return row
 
     def mod_pin(self, card_number, new_pin):
         pass
