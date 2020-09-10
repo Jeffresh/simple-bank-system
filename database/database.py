@@ -26,16 +26,16 @@ class BankDatabaseApi:
         pass
 
     def mod_balance(self, card_number):
-        cur = self.conn.cursor()
-        cur.execute(f'''SELECT balance from card where number == {card_number}''')
-        row = cur.fetchone()
-        return row
+        pass
 
     def mod_pin(self, card_number, new_pin):
         pass
 
     def get_balance(self, card_number):
-        pass
+        cur = self.conn.cursor()
+        cur.execute(f'''SELECT balance from card where number == {card_number}''')
+        row = cur.fetchone()
+        return row
 
     def __init__(self):
         self.conn = sqlite3.connect('file:database/card.s3db?mode=rw', uri=True)
