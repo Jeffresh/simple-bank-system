@@ -1,4 +1,5 @@
 import random as rd
+from database.database import BankDatabaseApi
 
 
 class BankSystem:
@@ -7,7 +8,7 @@ class BankSystem:
     USER_OPTIONS = [0, 1, 2]
 
     def __init__(self):
-        self.users = {}
+        self.db = BankDatabaseApi()
 
     def check_credit_card(self, card_number):
         credit_card = self.db.get_card(card_number)
