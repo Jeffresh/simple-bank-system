@@ -19,7 +19,8 @@ class BankSystem:
         return True if credit_card else False
 
     def add_user(self, card_number, pin):
-        self.users.update({card_number: pin})
+        if card_number and pin:
+            self.db.add_card(card_number, pin)
 
     @staticmethod
     def luhn_algorithm(number_list):
