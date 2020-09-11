@@ -20,6 +20,18 @@ class BankDatabaseApi:
         cur.execute(f'''INSERT INTO card(number, pin) VALUES({card_number}, {card_pin})''')
         self.conn.commit()
 
+    def get_card(self, card_number):
+        cur = self.conn.cursor()
+        cur.execute(f'''SELECT * from card where number == {card_number}''')
+        row = cur.fetchone()
+        return row
+
+    def get_card_pin(self, card_number, pin_number):
+        cur = self.conn.cursor()
+        cur.execute(f'''SELECT * from card where number == {card_number} and pin =={pin_number} ''')
+        row = cur.fetchone()
+        return row
+
     def remove_card(self, card_number):
         pass
 
