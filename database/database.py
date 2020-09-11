@@ -45,7 +45,7 @@ class BankDatabaseApi:
         cur = self.conn.cursor()
         cur.execute(f'''SELECT balance from card where number == {card_number}''')
         row = cur.fetchone()
-        return row
+        return row.balance
 
     def __init__(self):
         self.conn = sqlite3.connect('file:database/card.s3db?mode=rw', uri=True)
