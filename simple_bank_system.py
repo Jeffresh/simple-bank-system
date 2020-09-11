@@ -14,7 +14,8 @@ class BankSystem:
         return True if credit_card else False
 
     def check_pin(self, card_number, pin):
-        return self.users[card_number] == pin
+        credit_card = self.db.get_card_pin(card_number, pin)
+        return True if credit_card else False
 
     def add_user(self, card_number, pin):
         self.users.update({card_number: pin})
