@@ -10,7 +10,8 @@ class BankSystem:
         self.users = {}
 
     def check_credit_card(self, card_number):
-        return card_number in self.users
+        credit_card = self.db.get_card(card_number)
+        return True if credit_card else False
 
     def check_pin(self, card_number, pin):
         return self.users[card_number] == pin
