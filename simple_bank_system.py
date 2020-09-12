@@ -61,15 +61,14 @@ class BankSystem:
         pin = input("Enter your PIN:\n")
         if self.check_credit_card(card_number) and self.check_pin(card_number, pin):
             print("You have successfully logged in!")
-            return True
+            return card_number
         else:
             print("Wrong card number or PIN!")
 
-        return False
+        return None
 
-    @staticmethod
-    def get_balance():
-        print("Balance 0")
+    def get_balance(self, card_number):
+        return self.db.get_balance(card_number)
 
     @staticmethod
     def log_out():
@@ -95,7 +94,8 @@ class BankSystem:
                     while logged and user_option != 0:
                         user_option = self.user_menu()
                         if user_option == 1:
-                            self.get_balance()
+                            balance = self.get_balance(logged)
+                            print("Balance: {}".format(balance))
                         if user_option == 2:
                             self.log_out()
 
