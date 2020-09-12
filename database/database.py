@@ -1,15 +1,16 @@
 import sqlite3
 
+
 class Database:
 
     def create_card_table(self):
         cur = self.conn.cursor()
-        cur.execute('''CREATE TABLE IF NOT EXISTS card(id INT PRIMARY KEY , 
-        number VARCHAR(16) NOT NULL UNIQUE, pin VARCHAR(4) NOT NULL , balance INT DEFAULT  0)''')
+        cur.execute('''CREATE TABLE IF NOT EXISTS card(id INTEGER, 
+        number TEXT, pin TEXT , balance INTEGER  DEFAULT 0)''')
         self.conn.commit()
 
     def __init__(self):
-        self.conn = sqlite3.connect('database/card.s3db')
+        self.conn = sqlite3.connect('card.s3db')
         self.create_card_table()
 
 
