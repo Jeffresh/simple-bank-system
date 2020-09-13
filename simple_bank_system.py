@@ -47,6 +47,9 @@ class BankSystem:
     def add_income(self, card_number):
         pass
 
+    def do_transfer(self, card_number_o, card_number_d):
+        pass
+
     @staticmethod
     def user_menu():
         return int(input('1. Balance\n2. Add income\n3. Do transfer\n4. Close account\n5. Log out\n0. Exit\n'))
