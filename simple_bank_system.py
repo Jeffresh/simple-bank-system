@@ -48,7 +48,21 @@ class BankSystem:
         pass
 
     def do_transfer(self, card_number_o, card_number_d):
-        pass
+
+        if card_number_o == card_number_d:
+            print("You can't transfer money to the same account!")
+            # TODO: implement  check with luhn algorithm
+        elif not self.luhn_algorithm(card_number_d):
+            print('Probably you made a mistake in the card number. Please try again!')
+        elif self.check_credit_card(card_number_d):
+            print('Such a card does not exist')
+        else:
+            balance = self.db.get_balance(card_number_d)
+            transfer_money = input('Enter how much money you want to transfer:')
+            if balance < transfer_money:
+                print('Not enough money!')
+            else:
+                print('Success!')
 
     def close_account(self, card_number):
         pass
