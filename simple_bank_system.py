@@ -5,7 +5,7 @@ from database.database import BankDatabaseApi
 class BankSystem:
     CARDS = ['Visa', 'American Express', 'Mastercard']
     MAIN_OPTIONS = [0, 1, 2]
-    USER_OPTIONS = [0, 1, 2]
+    USER_OPTIONS = [0, 1, 2, 3, 4, 5]
 
     def __init__(self):
         self.db = BankDatabaseApi()
@@ -46,7 +46,7 @@ class BankSystem:
 
     @staticmethod
     def user_menu():
-        return int(input('1. Balance\n2. Log out\n0. Exit\n'))
+        return int(input('1. Balance\n2. Add income\n3. Do transfer\n4. Close account\n5. Log out\n0. Exit\n'))
 
     def create_account(self):
         print('Your card has been created')
