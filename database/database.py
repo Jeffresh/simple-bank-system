@@ -34,7 +34,9 @@ class BankDatabaseApi:
         return row
 
     def remove_card(self, card_number):
-        pass
+        cur = self.conn.cursor()
+        cur.execute(f''' DELETE from card where number =={card_number}''')
+        self.conn.commit()
 
     def mod_balance(self, card_number):
         pass
