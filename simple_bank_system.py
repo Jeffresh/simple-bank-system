@@ -44,6 +44,9 @@ class BankSystem:
         pin_number = str(rd.randint(0, 9999))
         return '0' * (4 - len(pin_number)) + pin_number
 
+    def add_income(self, card_number):
+        pass
+
     @staticmethod
     def user_menu():
         return int(input('1. Balance\n2. Add income\n3. Do transfer\n4. Close account\n5. Log out\n0. Exit\n'))
