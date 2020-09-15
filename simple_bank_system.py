@@ -53,15 +53,18 @@ class BankSystem:
             print("You can't transfer money to the same account!")
         elif not self.luhn_algorithm(list(map(int, card_number_d))) % 10 == 0:
             print('Probably you made a mistake in the card number. Please try again!')
-        elif self.check_credit_card(card_number_d):
-            print('Such a card does not exist')
         else:
-            balance = self.db.get_balance(card_number_d)
-            transfer_money = input('Enter how much money you want to transfer:')
-            if balance < transfer_money:
-                print('Not enough money!')
+            if not self.check_credit_card(card_number_d):
+                print('Such a card does not exist')
             else:
-                print('Success!')
+                balance = self.db.get_balance(card_number_o)
+                transfer_money = input('Enter how much money you want to transfer:')
+                if balance < float(transfer_money):
+                    print('Not enough money!')
+                else:
+                    self.db.mod_balance(card_number_d, transfer_money)
+                    self.db.mod_balance(card_number_o, "-" + transfer_money)
+                    print('Success!')
 
     def close_account(self, card_number):
         self.db.remove_card(card_number)
