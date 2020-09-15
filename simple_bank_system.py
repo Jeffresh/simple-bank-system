@@ -44,8 +44,8 @@ class BankSystem:
         pin_number = str(rd.randint(0, 9999))
         return '0' * (4 - len(pin_number)) + pin_number
 
-    def add_income(self, card_number):
-        pass
+    def add_income(self, card_number, income):
+        self.db.mod_balance(card_number, income)
 
     def do_transfer(self, card_number_o, card_number_d):
 
