@@ -40,7 +40,7 @@ class BankDatabaseApi:
 
     def mod_balance(self, card_number, income):
         cur = self.conn.cursor()
-        cur.execute(f'''UPDATE card SET balance = balance + {income} where number =={card_number} ''')
+        cur.execute(f'''UPDATE card SET balance = balance + {income} where number == {card_number} ''')
         self.conn.commit()
 
     def mod_pin(self, card_number, new_pin):
