@@ -122,6 +122,17 @@ class BankSystem:
                             balance = self.get_balance(logged)
                             print("Balance: {}".format(balance))
                         if user_option == 2:
+                            income = input("Enter income:\n")
+                            self.add_income(logged, income)
+                            print("Income was added!")
+                        if user_option == 3:
+                            destiny_card_number = input("Enter card number:\n")
+                            self.do_transfer(logged, destiny_card_number)
+                        if user_option == 4:
+                            self.close_account(logged)
+                            print("The account has been closed!")
+                            self.log_out()
+                        if user_option == 5:
                             self.log_out()
 
             option = BankSystem.main_menu() if user_option != 0 else 0
