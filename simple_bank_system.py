@@ -51,8 +51,7 @@ class BankSystem:
 
         if card_number_o == card_number_d:
             print("You can't transfer money to the same account!")
-            # TODO: implement  check with luhn algorithm
-        elif not self.luhn_algorithm(card_number_d):
+        elif not self.luhn_algorithm(card_number_d) % 10 == 0:
             print('Probably you made a mistake in the card number. Please try again!')
         elif self.check_credit_card(card_number_d):
             print('Such a card does not exist')
