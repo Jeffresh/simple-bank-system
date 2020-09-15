@@ -64,7 +64,7 @@ class BankSystem:
                 print('Success!')
 
     def close_account(self, card_number):
-        pass
+        self.db.remove_card(card_number)
 
     @staticmethod
     def user_menu():
